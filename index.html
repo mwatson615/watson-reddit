@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reddit</title>
+	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body ng-app="redditApp" class="container">
+	<nav>
+		<ul class="nav nav-pills">
+			  <li role="presentation"><a href="#/"></a></li>
+			  <li role="presentation"><a href="#/home">Home</a></li>
+			  <li role="presentation"><a href="#/create">Create Post</a></li>
+		</ul>
+	</nav>
+	<div ng-view></div>
+
+
+
+<script src="/bower_components/angular/angular.min.js"></script>
+<script src="/bower_components/angular-route/angular-route.min.js"></script>
+<script src="/bower_components/firebase/firebase.js"></script>
+<script src="/app/app.js"></script>
+<script src="/factories/contentfactory.js"></script>
+<script src="/controllers/create.js"></script>
+<script src="/controllers/home.js"></script>
+<script src="/controllers/login.js"></script>
+</body>
+</html>
