@@ -8,6 +8,7 @@ app.factory('authFactory', ($q) => {
 			  	// Handle Errors here.
 			  	var errorCode = error.code;
 			  	var errorMessage = error.message;
+			  	alert(errorCode + " : " + errorMessage)
 			  // ...
 			})
 		},
@@ -18,12 +19,11 @@ app.factory('authFactory', ($q) => {
 				  // Handle Errors here.
 				  var errorCode = error.code;
 				  var errorMessage = error.message;
-			// console.log("register works")
 			})
 		},
-		getUserId () {
-			return firebase.auth().currentUser.uid
-		},
+		// getUserId () {
+		// 	return firebase.auth().currentUser.uid
+		// },
 		logout () {
 			firebase.auth().signOut()
 			.then(function() {

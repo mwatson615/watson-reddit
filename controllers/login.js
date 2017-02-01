@@ -5,10 +5,10 @@ app.controller('LoginCtrl', function ($scope, authFactory, $location, $route) {
 	$scope.login = () => {
 		// console.log("login working")
 		authFactory.login($scope.email, $scope.password)
-		// .then((response) => {
-		// 	console.log(response)
-		// 	$location.url("/home")
-		// })
+		.then((response) => {
+			console.log(response)
+			$location.url("/home")
+		})
 	}
 	$scope.register = () => {
 		authFactory.register($scope.email, $scope.password)
