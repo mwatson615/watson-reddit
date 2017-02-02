@@ -22,8 +22,12 @@ app.factory('authFactory', ($q, $http) => {
 			})
 		},
 		getUserId () {
-			console.log(currentUser)
-			return firebase.auth().currentUser.uid
+			return $q.resolve(firebase.auth().currentUser)
+			.catch(function(error) {
+				  // Handle Errors here.
+				  var errorCode = error.code;
+				  var errorMessage = error.message;
+			})
 		},
 		// logout () {
 		// 	return $q.resolve(firebase.auth().signOut())

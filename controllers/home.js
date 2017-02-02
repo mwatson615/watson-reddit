@@ -9,7 +9,8 @@ app.controller('HomeCtrl', function($scope, authFactory, createFactory) {
 	})
 	authFactory.getUserId()
 	.then((value) => {
-		console.log(value)
+		$scope.email = value.email
+		console.log(value.email)
 	})
 		// console.log(val)
 	// console.log("home control")

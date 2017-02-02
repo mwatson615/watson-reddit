@@ -3,14 +3,14 @@
 app.controller('CreateCtrl', function($scope, createFactory, authFactory) {
 
 	$scope.currentUser = authFactory.getUserId()
-
+	console.log($scope.currentUser.$$state.value)
 	$scope.createPost = () => {
 	let newPost = {
 		"title" : $scope.title,
 		"url" : $scope.url,
 		"imageName" : null,
 		"counter" : 0,
-		"userEmail" : ""
+		"userEmail" : $scope.currentUser.$$state.value.email
 	}
 	createFactory.createPost(newPost)
 		// console.log(newPost)
@@ -26,28 +26,28 @@ app.controller('CreateCtrl', function($scope, createFactory, authFactory) {
 	let imgArray = []
 
 
-// 	inputElement.addEventListener('change', handleFiles, false);
+	inputElement.addEventListener('change', handleFiles, false);
 
-// 	function handleFiles() {
-// 		let fileList = this.files;
-//      /* now you can work with the file list */
-//     // console.log("filelist", fileList)
-//     storageRef.child(fileList[0].name).put(fileList[0])
-//       .then(function(snapshot) {
-//         console.log('Uploaded a blob or file!');
-//       });
+	function handleFiles() {
+		let fileList = this.files;
+     /* now you can work with the file list */
+    // console.log("filelist", fileList)
+    storageRef.child(fileList[0].name).put(fileList[0])
+      .then(function(snapshot) {
+        console.log('Uploaded a blob or file!');
+      });
 
-//   //getting the url
-//   storageRef.child(this.files).getDownloadURL()
-// 	.then(function(url) {
-//       var img = document.getElementById('myImg');
-//       img.src = url;
-//       console.log(img)
-//       newPost.uploadUrl = url;
-//       $scope.images = fileList;
-//     }).catch(function(error) {
-//     // Handle any errors
-//   })
-// }
+  //getting the url
+  storageRef.child(this.files).getDownloadURL()
+	.then(function(url) {
+      var img = document.getElementById('myImg');
+      img.src = url;
+      console.log(img)
+      newPost.uploadUrl = url;
+      $scope.images = fileList;
+    }).catch(function(error) {
+    // Handle any errors
+  })
+}
 
 })

@@ -11,8 +11,6 @@ app.controller('LoginCtrl', function ($scope, authFactory, $location, $route) {
 	}
 	$scope.register = () => {
 		authFactory.register($scope.email, $scope.password)
-		console.log("register working")
+		// console.log("register working")
 	}
-
-	// console.log()
 })
