@@ -1,10 +1,11 @@
 <p>{{currentUser}}</p>
+<button>Sign Out</button>
 <h1>Home</h1>
 
-<div class="container">
-	<div class="card">
+<div class="container" ng-repeat="post in posts">
+	<div class="card" ng-repeat="(key, value) in post">
 		<h5>Username and when posted</h5>
-		<h3>Title</h3>
+		<h3>{{post.title}}</h3>
 		<img src="">Image
 		<span><h5>Counter</h5><h5>Comments</h5></span>
 	</div>

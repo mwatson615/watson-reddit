@@ -1,5 +1,5 @@
 // console.log("authfactory")
-app.factory('authFactory', ($q) => {
+app.factory('authFactory', ($q, $http) => {
 	return {
 		login (email, password) {
 			return $q.resolve(firebase.auth()
@@ -21,15 +21,17 @@ app.factory('authFactory', ($q) => {
 				  var errorMessage = error.message;
 			})
 		},
-		// getUserId () {
-		// 	return firebase.auth().currentUser.uid
-		// },
-		logout () {
-			firebase.auth().signOut()
-			.then(function() {
-		}, function(error) {
+		getUserId () {
+			console.log(currentUser)
+			return firebase.auth().currentUser.uid
+		},
+		// logout () {
+		// 	return $q.resolve(firebase.auth().signOut())
+		// 	.then(function() {
+		// })
+		// function(error) {
 		  // An error happened.
-		})
-		}
+		// }
+		// }
 	}
 })
