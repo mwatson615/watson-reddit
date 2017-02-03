@@ -25,8 +25,20 @@ app.factory('createFactory', ($http, $q) => {
 			})
 		},
 		increaseCounter : () => {
-			return $http.patch("")
+			return $http.patch("https://reddit-project-52b4d.firebaseio.com/posts/-Kc17KXvH_0Rd_yzV8t0/counter/.json")
+			.catch(function(error) {
+				  // Handle Errors here.
+				  var errorCode = error.code;
+				  var errorMessage = error.message;
+			})
+		},
+		decreaseCounter : () => {
+			return $http.patch("https://reddit-project-52b4d.firebaseio.com/posts/-Kc17KXvH_0Rd_yzV8t0/counter/.json")
+			.catch(function(error) {
+				  // Handle Errors here.
+				  var errorCode = error.code;
+				  var errorMessage = error.message;
+			})
 		}
-}
-
+	}
 })

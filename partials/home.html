@@ -1,6 +1,6 @@
 <p>Hello, {{email}}</p>
 <button type="button" class="btn btn-info" ng-click="logout()">Sign Out</button>
-<h1>Home</h1>
+
 
 <div class="container">
 	<div class="row" ng-repeat="post in posts">
@@ -9,12 +9,12 @@
 			<h3 class="text-right"><a href="{{post.url}}">{{post.title}}</a></h3>
 			<a href="{{post.imgUrl}}"><img class="postImg img-thumbnail" src="{{post.imgUrl}}"></a>
 			<span class="counterVote">
-				<button ng-click="upvote">
+				<button ng-click="increase()">
 					<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">
 					</span>
 				</button>
 				<h5>{{post.counter}}</h5>
-				<button ng-click="downVote">
+				<button ng-click="decrease()">
 					<span class="glyphicon glyphicon-thumbs-down">
 					</span>
 				</button>

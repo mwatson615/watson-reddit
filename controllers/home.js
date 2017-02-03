@@ -17,5 +17,12 @@ app.controller('HomeCtrl', function($scope, authFactory, createFactory, $locatio
 		$location.url("/home")
 		console.log("logout")
 	})
+	$scope.increase = () => {
+		createFactory.increaseCounter()
+		.then((value) => {
+			console.log("hi")
+			// $scope.counter = $scope.counter + 1
+		})
+	}
 }
 })
