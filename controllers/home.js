@@ -21,8 +21,7 @@ app.controller('HomeCtrl', function($http, $scope, authFactory, createFactory, $
 		authFactory
 		.logout()
 		.then((response) => {
-			$location.url("/home")
-			console.log("logout")
+			$location.url("/")
 		})
 	}
 
