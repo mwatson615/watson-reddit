@@ -1,14 +1,31 @@
 body {
-	background: lightgrey;
+	background: linear-gradient(85deg, #f4bf42, #8e7a4a, #afa793);
 	text-align: center;
+}
+
+.card {
+	background: lightgrey;
+	margin-bottom: 10px;
 }
 
 nav {
 	border-bottom: solid 1px black;
 }
 
+.login {
+	background-image: url('https://i.ytimg.com/vi/swKFu9WOseE/hqdefault.jpg');
+	height: 600px;
+	background-size: cover;
+}
+
 h1 {
 	margin: 25px;
+}
+
+.counterVote {
+	display: block;
+	max-width: 15px;
+	margin: auto;
 }
 
 .userInfo {
@@ -33,3 +50,20 @@ h1 {
 .card {
 	border: solid 1px black;
 }
+
+.postImg {
+	width: 350px;
+	height: 200px;
+	display: block;
+	margin-left: 0;
+}
+
+.counterVote {
+	display: block;
+	margin-right: 0;
+}
+
+/*article > h3 {
+	text-align: right;
+	
+}*/

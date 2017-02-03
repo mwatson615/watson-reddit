@@ -1,4 +1,4 @@
-// console.log("authfactory")
+
 app.factory('authFactory', ($q, $http) => {
 	return {
 		login (email, password) {
@@ -29,13 +29,8 @@ app.factory('authFactory', ($q, $http) => {
 				  var errorMessage = error.message;
 			})
 		},
-		// logout () {
-		// 	return $q.resolve(firebase.auth().signOut())
-		// 	.then(function() {
-		// })
-		// function(error) {
-		  // An error happened.
-		// }
-		// }
+		logout () {
+			return $q.resolve(firebase.auth().signOut())
+		}
 	}
 })

@@ -1,10 +1,9 @@
-// console.log("home")
 
-app.controller('HomeCtrl', function($scope, authFactory, createFactory) {
-	// $scope.currentUser = authFactory.getUserId()
+
+app.controller('HomeCtrl', function($scope, authFactory, createFactory, $location, $route) {
 	createFactory.getPost()
 	.then((results) => {
-		console.log(results.data)
+		console.log(results)
 		$scope.posts = results.data
 	})
 	authFactory.getUserId()
@@ -12,6 +11,11 @@ app.controller('HomeCtrl', function($scope, authFactory, createFactory) {
 		$scope.email = value.email
 		console.log(value.email)
 	})
-		// console.log(val)
-	// console.log("home control")
+	$scope.logout = () => {
+	authFactory.logout()
+	.then((response) => {
+		$location.url("/home")
+		console.log("logout")
+	})
+}
 })

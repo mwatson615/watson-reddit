@@ -43,27 +43,4 @@ const app = angular.module('redditApp', ['ngRoute'])
 		.otherwise({
 			redirectTo: '/' //add auth to redirect to login if not logged in
 		})
-		// .run(($location) => {
-
-		// })
-		
-
-// app.config(function($routeProvider, $locationProvider) {
-// 	$locationProvider.hashPrefix('')
-// 	$routeProvider
-// 		.when('/', {
-// 			controller: 'LoginCtrl',
-// 			templateUrl: 'partials/login.html'
-// 		})
-// 		.when('/home', {
-// 			controller: 'HomeCtrl',
-// 			templateUrl: 'partials/home.html'
-// 		})
-// 		.when('/create', {
-// 			controller: 'CreateCtrl',
-// 			templateUrl: 'partials/create.html'
-// 		})
-// 		.otherwise({
-// 			redirectTo: '/' //add auth to redirect to login if not logged in
-// 		})
 })

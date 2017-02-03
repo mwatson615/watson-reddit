@@ -1,12 +1,24 @@
 <p>Hello, {{email}}</p>
-<button>Sign Out</button>
+<button type="button" class="btn btn-info" ng-click="logout()">Sign Out</button>
 <h1>Home</h1>
 
-<div class="container" ng-repeat="post in posts">
-	<div class="card" ng-repeat="(key, value) in post">
-		<h5>Username and when posted</h5>
-		<h3>{{post.title}}</h3>
-		<img src="">Image
-		<span><h5>Counter</h5><h5>Comments</h5></span>
+<div class="container">
+	<div class="row" ng-repeat="post in posts">
+		<article class="card container-fluid">
+			<h5>{{post.userEmail}} posted...</h5>
+			<h3 class="text-right"><a href="{{post.url}}">{{post.title}}</a></h3>
+			<a href="{{post.imgUrl}}"><img class="postImg img-thumbnail" src="{{post.imgUrl}}"></a>
+			<span class="counterVote">
+				<button ng-click="upvote">
+					<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">
+					</span>
+				</button>
+				<h5>{{post.counter}}</h5>
+				<button ng-click="downVote">
+					<span class="glyphicon glyphicon-thumbs-down">
+					</span>
+				</button>
+			</span>
+		</article>
 	</div>
 </div>

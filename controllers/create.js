@@ -11,38 +11,39 @@ app.controller('CreateCtrl', function($scope, createFactory, authFactory) {
 
 	let imgUrl = ""
 
-
 	inputElement.addEventListener('change', handleFiles, false);
 
-	function handleFiles() {
+	function handleFiles(img) {
 		let fileList = this.files;
      /* now you can work with the file list */
-    console.log("filelist", fileList)
+    // console.log("filelist", fileList)
     storageRef.child(fileList[0].name).put(fileList[0])
       .then(function(snapshot) {
-        console.log('Uploaded a blob or file!');
-      });
+        console.log(snapshot.a.downloadURLs[0])
+        $scope.downloadUrl = snapshot.a.downloadURLs[0]
+      }).catch(function(error) {
 
-    storageRef.child('brasstownfalls.jpg').getDownloadURL()
+      })
+
+    storageRef.child().getDownloadURL()
 	.then(function(url) {
-      // var img = document.getElementById('myImg');
-      // img.src = url;
-      // console.log(img)
-      imgUrl = url;
-      console.log(imgUrl)
+		// console.log(url)
+      // imgUrl = url;
+      // console.log(imgUrl)
       $scope.images = fileList;
     }).catch(function(error) {
     // Handle any errors
   })
 }
 	$scope.currentUser = authFactory.getUserId()
-	// console.log($scope.currentUser.$$state.value)
+
 	$scope.createPost = () => {
 	let newPost = {
 		"title" : $scope.title,
 		"url" : $scope.url,
-		"imgUrl" : imgUrl,
+		"imgUrl" : $scope.downloadUrl,
 		"counter" : 0,
+		// "dateStamp" : date,
 		"userEmail" : $scope.currentUser.$$state.value.email
 	}
 	createFactory.createPost(newPost)
