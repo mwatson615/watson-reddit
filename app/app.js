@@ -11,16 +11,6 @@ const app = angular.module('redditApp', ['ngRoute'])
 	    messagingSenderId: "416158005832"
 	  })
 
-	const checkForAuth = {
-      checkForAuth ($location) {
-        const authReady = firebase.auth().onAuthStateChanged(user => {
-          authReady()
-          if (!user) {
-            $location.url('/')
-          }
-        })
-      }
-    }
 
 		$locationProvider.hashPrefix('')
 		$routeProvider
@@ -31,10 +21,12 @@ const app = angular.module('redditApp', ['ngRoute'])
 		.when('/home', {
 			controller: 'HomeCtrl',
 			templateUrl: 'partials/home.html',
-			// resolve: {
-			// user (authFactory, $location)
-			// 	return authFactory.getUserId()
-			// }
+			resolve: {
+			user (authFactory, $location) {
+				return authFactory.getUserId()
+				.catch(() => $location.url('/'))
+				}
+			}
 		})
 		.when('/create', {
 			controller: 'CreateCtrl',

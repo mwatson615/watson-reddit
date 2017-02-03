@@ -1,5 +1,5 @@
 
-app.factory('authFactory', ($q, $http) => {
+app.factory('authFactory', ($q) => {
 	return {
 		login (email, password) {
 			return $q.resolve(firebase.auth()
@@ -22,12 +22,21 @@ app.factory('authFactory', ($q, $http) => {
 			})
 		},
 		getUserId () {
-			return $q.resolve(firebase.auth().currentUser)
-			.catch(function(error) {
-				  // Handle Errors here.
-				  var errorCode = error.code;
-				  var errorMessage = error.message;
+			return $q((resolve, reject) => {
+				const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+					unsubscribe()
+					if (user) {
+						resolve(user)
+					} else {
+						reject()
+					}
+				})
 			})
+			// .catch(function(error) {
+			// 	  // Handle Errors here.
+			// 	  var errorCode = error.code;
+			// 	  var errorMessage = error.message;
+			// })
 		},
 		logout () {
 			return $q.resolve(firebase.auth().signOut())
