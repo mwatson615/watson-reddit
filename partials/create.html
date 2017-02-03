@@ -1,1 +1,14 @@
-<h1>Create</h1>
+<h1>Create a Post</h1>
+
+<div class="input-group container">
+	<div>
+		<p>Hello, {{currentUser.$$state.value.email}}</p>
+	</div>
+	<div>
+		  <input type="text" ng-model="title" class="form-control" placeholder="Title..." aria-describedby="basic-addon1">
+		  <input type="text" ng-model="url" class="form-control" placeholder="URL..." aria-describedby="basic-addon1">
+		  <label for="#fileInput">Upload Your Image</label>
+		  <input type="file" id="fileInput" ng-model="imageName" class="form-control" placeholder="Upload Image" aria-describedby="basic-addon1">
+			</div>
+		  <button type="button" ng-click="createPost()" class="btn btn-primary center-block createBtn">Create Post</button>
+</div>

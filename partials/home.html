@@ -1,1 +1,24 @@
-<h1>Home</h1>
+<p>Hello, {{email}}</p>
+<button type="button" class="btn btn-info" ng-click="logout()">Sign Out</button>
+
+
+<div class="container">
+	<div class="row" ng-repeat="post in postArray | orderBy: 'counter':reverse=true">
+		<article class="card container-fluid">
+			<h5>{{post.userEmail}} posted...</h5>
+			<h3 class="text-left"><a href="{{post.url}}">{{post.title}}</a></h3>
+			<a href="{{post.imgUrl}}"><img class="postImg img-thumbnail" ng-src="{{post.imgUrl}}"></a>
+			<div class="counterVote">
+				<button ng-click="vote(post, 'up')">
+					<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">
+					</span>
+				</button>
+				<h5>{{post.counter}}</h5>
+				<button ng-click="vote(post,'down')">
+					<span class="glyphicon glyphicon-thumbs-down">
+					</span>
+				</button>
+			</div>
+		</article>
+	</div>
+</div>
